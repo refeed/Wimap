@@ -1,0 +1,8 @@
+.wimap-py2-venv/
+var/*
+*.pyc
+*.sql
+*.psql
+*.sqlite3
+__pycache__
+node_modules/
