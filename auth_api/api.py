@@ -1,5 +1,7 @@
-from rest_framework import permissions, viewsets, status
+from rest_framework import permissions, viewsets, status, views
 from rest_framework.response import Response
+
+from django.contrib.auth import login, logout, authenticate
 
 from auth_api.models import UserProfile
 from auth_api.permissions import IsAccountOwner
@@ -31,3 +33,26 @@ class UserProfileViewSet(viewsets.ModelViewSet):
             'status': 'Bad request',
             'message': 'Account could not be created with received data.'
         }, status=status.HTTP_400_BAD_REQUEST)
+
+
+class LoginView(views.APIView):
+    def post(self, request):
+        user = authenticate(
+            email=request.data.get('email'),
+            password=request.data.get('password')
+        )
+
+        if user is None or not user.is_active:
+            return Response(dict(
+                status='Unauthorized',
+                message='Username or password incorrect'
+            ), status=status.HTTP_401_UNAUTHORIZED)
+
+        login(request, user)
+        return Response(UserProfileSerializer(user).data)
+
+
+class LogoutView(views.APIView):
+    def get(self, request):
+        logout(request)
+        return Response({}, status=status.HTTP_204_NO_CONTENT)

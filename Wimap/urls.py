@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^api/v1/', include(router.urls)),
 
     url(r'^admin/', admin.site.urls),
+    url(r'^auth_api/', include('auth_api.urls'))
 ]
