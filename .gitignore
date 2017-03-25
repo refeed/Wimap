@@ -6,3 +6,4 @@ var/*
 *.sqlite3
 __pycache__
 node_modules/
+**/migrations
