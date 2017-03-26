@@ -35,8 +35,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
             # Update Account using serialized data
             instance.username = validated_data.get('username', instance.username)
             instance.bio = validated_data.get('bio', instance.bio)
-            instance.first_name = validated_data.get('first_name', instance.first_name)
-            instance.last_name = validated_data.get('last_name', instance.last_name)
+            instance.full_name = validated_data.get('full_name', instance.full_name)
             instance.contact_handphone = validated_data.get('contact_handphone', instance.contact_handphone)
             instance.address = validated_data.get('address', instance.address)
 

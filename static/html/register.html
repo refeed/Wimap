@@ -1,0 +1,36 @@
+<div layout="column" layout-align="center stretch" layout-padding>
+
+    <md-content class="md-no-momentum">
+        <h2>Create an account</h2>
+
+        <div style="margin-left:10px; max-width:50%">
+            <form ng-submit="vm.registerClick()">
+                <md-input-container class="md-icon-float md-block">
+                    <input ng-model="vm.user.fullName" type="text" placeholder="Full name" autofocus ng-required="true">
+                </md-input-container>
+
+                <md-input-container class="md-icon-float md-block">
+                    <input ng-model="vm.user.username" type="text" placeholder="Username" pattern="[^\s]+" ng-required="true">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <input ng-model="vm.user.email" type="email" placeholder="Email (required)" ng-required="true">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <input ng-model="vm.user.password" type="password" placeholder="Password (required)" ng-required="true">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <input ng-model="vm.user.confirmPassword" type="password" placeholder="Confirm password (required)" ng-required="true"> {{vm.user.passwordSame}}
+                </md-input-container>
+
+                <md-button type="submit">Register</md-button>
+            </form>
+        </div>
+
+
+
+    </md-content>
+
+</div>

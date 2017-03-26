@@ -1,0 +1,22 @@
+<div layout="column" layout-align="center" layout-padding>
+    <md-whiteframe class="md-whiteframe-17dp">
+        <md-content>
+            <h2>Account login</h2>
+
+            <div style="margin-left:10px; max-width:50%">
+                <form ng-submit="vm.loginUser()">
+                    <md-input-container class="md-icon-float md-block">
+                        <input ng-model="vm.userdata.username" type="text" placeholder="Email" autofocus ng-required="true"/>
+                    </md-input-container>
+
+                    <md-input-container class="md-icon-float md-block">
+                        <input ng-model="vm.userdata.password" type="password" placeholder="Password" ng-required="true"/>
+                    </md-input-container>
+
+                    <md-button type="submit">Login</md-button>
+                </form>
+            </div>
+
+        </md-content>
+    </md-whiteframe>
+</div>

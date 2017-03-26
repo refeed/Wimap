@@ -1,0 +1,52 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html ng-app="wimapp">
+
+<head>
+    <meta charset="utf-8">
+    <title>Wimap</title>
+
+    <link rel="stylesheet" href="{% static 'node_modules/angular-material/angular-material.min.css' %}">
+    <link rel="stylesheet" href="{% static 'node_modules/angular-material-icons/angular-material-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+
+    <!--JAVASCRIPTS-->
+    <script type="text/javascript" src="{% static 'node_modules/angular/angular.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'node_modules/angular-material/angular-material.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'node_modules/angular-aria/angular-aria.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'node_modules/angular-animate/angular-animate.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'node_modules/angular-ui-router/release/angular-ui-router.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'node_modules/angular-material-icons/angular-material-icons.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'node_modules/ngmap/build/scripts/ng-map.min.js' %}"></script>
+
+    <!--MODULE-->
+    <script type="text/javascript" src="{% static 'js/wimapp.module.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/providers/routeHelper.provider.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/wimapp.route.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/services/authentication.service.js' %}"></script>
+
+    <!--CONTROLLER-->
+    <script type="text/javascript" src="{% static 'js/controllers/main.controller.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/controllers/register.controller.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/controllers/login.controller.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/controllers/toolbar.controller.js' %}"></script>
+
+</head>
+
+<body layout='row' ng-cloak ng-controller="MainController as vm">
+
+    <div ng-include="'/static/html/sidenav.html'" layout='vertical'></div>
+
+    <section flex layout='column'>
+        <div ng-include="'/static/html/toolbar.html'"></div>
+
+        <md-content flex>
+            <ui-view></ui-view>
+        </md-content>
+    </section>
+
+</body>
+
+</html>

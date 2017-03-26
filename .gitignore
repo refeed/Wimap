@@ -7,3 +7,5 @@ var/*
 __pycache__
 node_modules/
 **/migrations
+npm-debug.log
+.vscode/

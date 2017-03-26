@@ -1,0 +1,23 @@
+<md-toolbar class="md-hue-2" ng-controller='ToolbarController as tb'>
+    <div class="md-toolbar-tools">
+        <md-button hide-gt-sm ng-click="vm.toggleSidenav()" class="md-icon-button" aria-label="Toggle">
+            <md-icon md-svg-icon="menu"></md-icon>
+        </md-button>
+
+        <h1 flex md-truncate>Wimap</h1>
+
+        <md-menu>
+            <md-button ng-click="tb.clickUserButton($mdMenu, $event)">
+                <md-icon md-svg-icon="user"></md-icon>
+                {{tb.userButton}}
+            </md-button>
+            <md-menu-content>
+                <md-menu-item>
+                    <md-button ng-click='tb.logoutClicked()'>
+                        Logout
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </div>
+</md-toolbar>

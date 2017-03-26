@@ -35,6 +35,16 @@ class UserProfileViewSet(viewsets.ModelViewSet):
         }, status=status.HTTP_400_BAD_REQUEST)
 
 
+class UserView(views.APIView):
+    def get(self, request):
+        user = request.user
+
+        if user is None or not user.is_active:
+            return Response({}, status=status.HTTP_401_UNAUTHORIZED)
+
+        return Response(UserProfileSerializer(user).data)
+
+
 class LoginView(views.APIView):
     def post(self, request):
         user = authenticate(
